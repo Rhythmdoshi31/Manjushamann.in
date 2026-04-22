@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Admin {
+  id       String   @id @default(uuid())
+  username String   @unique
+  password String
+}
+
+model Content {
+  id        String   @id @default(uuid())
+  videoUrl  String
+  text      String
+  updatedAt DateTime @updatedAt
+}
+
+model SiteVisit {
+  id        String   @id @default(uuid())
+  date      DateTime @unique @db.Date
+  count     Int      @default(0)
+}

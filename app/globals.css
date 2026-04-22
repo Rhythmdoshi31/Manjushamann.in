@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-grotesk: "Host Grotesk", sans-serif;
+  --font-mincho: "Shippori Mincho", serif;
+}
+
+@font-face {
+  font-family: 'Host Grotesk';
+  src: url('/fonts/fontgrotesk.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Shippori Mincho';
+  src: url('/fonts/fontmincho.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes pulseFast {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; color: rgb(255, 98, 0); }
+}
+
+.fade-in-out {
+  animation: fadeInOut 4s ease-in-out infinite;
+}
+
+.animate-\[pulseFast_1s_infinite\] {
+  animation: pulseFast 1s infinite;
+}
