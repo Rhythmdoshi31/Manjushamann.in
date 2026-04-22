@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 
 export default function Footer() {
   const arr3 = [
@@ -52,7 +52,7 @@ export default function Footer() {
         © 2025 . All rights reserved.
       </h1>
       <div className="flex items-center justify-center gap-12 mt-8 mb-8">
-        <Link
+        {/* <Link
           href="/admin/login"
           className="font-grotesk text-base text-blue-600 underline transition"
         >
@@ -64,7 +64,7 @@ export default function Footer() {
           className="font-grotesk text-base text-blue-600 underline transition"
         >
           Log Out
-        </Link>
+        </Link> */}
       </div>
     </footer>
   );

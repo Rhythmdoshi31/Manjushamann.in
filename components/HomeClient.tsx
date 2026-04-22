@@ -21,13 +21,12 @@ export default function HomeClient({ videoUrl, videoText }: HomeClientProps) {
     fetch("/api/visits/track", { method: "POST" }).catch(console.error);
   }, []);
 
-  // WhatsApp number
-  const dummyNumber = "1234567890"; 
+  const whatsappNumber = process.env.NEXT_PUBLIC_NUMBER || "9826812299";
 
   return (
     <>
       <Header />
-      
+
       <Reel
         videoUrl={videoUrl}
         videoText={videoText}
@@ -39,7 +38,7 @@ export default function HomeClient({ videoUrl, videoText }: HomeClientProps) {
 
       <DestinyCards />
 
-      <Readings number={dummyNumber} />
+      <Readings number={whatsappNumber} />
 
       <Reviews />
 

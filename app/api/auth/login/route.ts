@@ -2,10 +2,27 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import { SignJWT } from "jose";
+import { rateLimit } from "@/lib/rateLimit";
 
-const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret_key_change_me_in_prod";
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if(!JWT_SECRET) {
+  throw new Error("JWT_SECRET is not defined");
+}
 
 export async function POST(req: Request) {
+
+  const ip =
+    req.headers.get("x-forwarded-for") ||
+    req.headers.get("x-real-ip") ||
+    "unknown";
+
+  if (!rateLimit(ip)) {
+    return NextResponse.json(
+      { error: "Too many requests" },
+      { status: 429 }
+    );
+  }
   try {
     const { username, password } = await req.json();
 

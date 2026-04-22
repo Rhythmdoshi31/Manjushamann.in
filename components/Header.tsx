@@ -24,7 +24,13 @@ export default function Header() {
           className="absolute top-0 right-[-15%] object-cover h-8 w-8"
         />
       </div>
-      <div>
+      <div className="flex items-center justify-center gap-4">
+        <Link
+          href="/admin/login"
+          className="font-grotesk  text-gray-100 text-lg border-white border-[2px] rounded-2xl px-2"
+        >
+          Log In
+        </Link>
         <Link href="#readings" className="text-gray-100 text-4xl">
           <i className="ri-menu-3-fill"></i>
         </Link>
